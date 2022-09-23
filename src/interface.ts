@@ -29,4 +29,5 @@ export interface IPartialList<T> {
   onRenderItem?: (item: T, index: number) => void
   initialNumToRender?: number
   keyExtractor?: (item: T, index: number) => never
+  renderItemLoader?: (item: T, index: number) => JSX.Element
 }

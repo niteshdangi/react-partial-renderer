@@ -12,6 +12,7 @@ export const PartialList = <T extends never[]>({
   onRenderItem,
   initialNumToRender = 0,
   keyExtractor,
+  renderItemLoader,
 }: IPartialList<T>) => {
   return (
     <>
@@ -24,6 +25,7 @@ export const PartialList = <T extends never[]>({
           startIndex={delayStartIndex}
           onReady={() => onRenderItem?.(item, index)}
           endIndex={delayEndIndex || items.length}
+          loader={renderItemLoader ? renderItemLoader(item, index) : undefined}
         >
           {renderItem(item, index)}
         </PartialScreenRenderer>
