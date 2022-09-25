@@ -1,6 +1,6 @@
 {
   "name": "react-partial-renderer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Partial Rendering Helper for Smooth Navigation & Rendering",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
