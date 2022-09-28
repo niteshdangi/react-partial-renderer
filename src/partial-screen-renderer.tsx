@@ -11,6 +11,7 @@ import RenderHelper from './render-helper'
  * @param delay Delay to render a component which is under startIndex and endIndex, default is 250
  * @param loader Adds a loader till your Component is not ready
  * @param onReady Callback when component is rendered
+ * @param batchId For Batching multiple components
  * @returns Delayed Children or Loader or empty JSX
  */
 
@@ -23,19 +24,20 @@ const PartialScreenRenderer = ({
   loader,
   delay,
   onReady,
+  batchId,
 }: IPartialScreenRenderer) => {
   if (skip) return children
 
   if (index <= startIndex)
     return (
-      <RenderHelper onReady={onReady} loader={loader}>
+      <RenderHelper batchId={batchId} onReady={onReady} loader={loader}>
         {children}
       </RenderHelper>
     )
 
   if (index > startIndex && index < endIndex) {
     return (
-      <RenderHelper onReady={onReady} loader={loader} delay={delay || 250}>
+      <RenderHelper batchId={batchId} onReady={onReady} loader={loader} delay={delay || 250}>
         {children}
       </RenderHelper>
     )

@@ -3,6 +3,7 @@ export interface IRenderHelper {
   delay?: number
   loader?: JSX.Element
   onReady?: () => void
+  batchId?: string
 }
 export interface IDeferredRenderHelper {
   children: JSX.Element
@@ -18,6 +19,7 @@ export interface IPartialScreenRenderer {
   loader?: JSX.Element
   delay?: number
   onReady?: () => void
+  batchId?: string
 }
 export interface IPartialList<T> {
   items: T[]

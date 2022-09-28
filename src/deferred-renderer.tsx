@@ -10,7 +10,7 @@ import { IDeferredRenderHelper } from './interface'
  */
 
 export const DeferredRenderHelper = ({ children, loader, onReady }: IDeferredRenderHelper) => {
-  const ready = useDeferredRenderHelper(false, onReady)
+  const ready = useDeferredRenderHelper(onReady)
 
   if (!ready && loader) return loader
 
