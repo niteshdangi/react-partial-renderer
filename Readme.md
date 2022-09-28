@@ -25,6 +25,7 @@ Proper Usage of the following Components can decrease load time & render time & 
 
 import RenderHelper from 'react-partial-renderer';
 // Puts component in callback queue with specified delay
+use batchId to batch multiple components having same batch ID
 ...
     <RenderHelper loader={<Loader/>} onReady={()=>{}} delay={0}>
         <YourComp />
@@ -34,6 +35,7 @@ import RenderHelper from 'react-partial-renderer';
 
 import { PartialScreenRenderer } from 'react-partial-renderer';
 // Puts components in callback queue with specified delay in the list to render items one by one.
+use batchId to batch multiple components having same batch ID
 ...
     {items.map((item,index)=>(
         <PartialScreenRenderer
@@ -82,6 +84,9 @@ import {deferRender} from 'react-partial-renderer';
 const Component = ...
 
 export default deferRender(Component, <Loader/>)
+
+// use to change queue limit or toggle dev mode to know when u are exceeding the limit.
+import {setQueueLimit, setDevMode} from 'react-partial-renderer';
 
 ```
 
